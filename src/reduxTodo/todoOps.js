@@ -15,3 +15,29 @@ export const fetchTodos = createAsyncThunk(
     }
   },
 );
+
+export const addTodo = createAsyncThunk(
+  'todos/addTodo',
+  async (newTodo, thunkAPI) => {
+    try {
+      const response = await axios.post('/todos', newTodo);
+      return response.data;
+    } catch (error) {
+      //   return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue('Oops... ');
+    }
+  },
+);
+
+export const deleteTodo = createAsyncThunk(
+  'todos/deleteTodo',
+  async (id, thunkAPI) => {
+    try {
+      const response = await axios.delete(`/todos/${id}`);
+      return response.data;
+    } catch (error) {
+      //   return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue('Oops... ');
+    }
+  },
+);

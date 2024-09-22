@@ -1,4 +1,4 @@
-import { Section, Container, Header, Text, TodoList } from 'components';
+import { Section, Container, Header, Text, TodoList, Form } from 'components';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTodos } from 'reduxTodo/todoOps';
@@ -17,6 +17,7 @@ export const App = () => {
       <Header />
       <Section>
         <Container>
+          <Form />
           {todos.length === 0 ? (
             <Text textAlign="center">Create your first todo😉</Text>
           ) : (
